@@ -1,0 +1,19 @@
+<html>
+<head>
+<title>Realtime Server Update</title>
+</head>
+<body>
+function getLog() {
+    $.ajax({
+        url: 'status.txt',
+        dataType: 'text',
+        success: function(text) {
+            $("#containerDiv").text(text);
+            setTimeout(getLog, 30000); // refresh every 30 seconds
+        }
+    })
+}
+
+getLog();
+</body>
+</html>
